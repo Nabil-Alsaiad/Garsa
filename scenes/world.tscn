@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://pj8gdue5g2lk"]
+
+[ext_resource type="PackedScene" uid="uid://dljmgyjq1uij7" path="res://scenes/player/game_manager.tscn" id="1_cwvxl"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_srxkr"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_srxkr")
+
+[node name="GameManager" parent="." instance=ExtResource("1_cwvxl")]
+
+[node name="Lands" type="Node2D" parent="."]
+
+[node name="Plants" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
