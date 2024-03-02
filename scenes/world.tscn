@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://pj8gdue5g2lk"]
+[gd_scene load_steps=4 format=3 uid="uid://pj8gdue5g2lk"]
 
 [ext_resource type="PackedScene" uid="uid://dljmgyjq1uij7" path="res://scenes/player/game_manager.tscn" id="1_cwvxl"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_srxkr"]
+[ext_resource type="PackedScene" uid="uid://b1q72a5m08s04" path="res://scenes/units/enemies/enemy.tscn" id="3_egd1l"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_srxkr")
+_grid_size = Vector2i(5, 3)
 
 [node name="GameManager" parent="." instance=ExtResource("1_cwvxl")]
 
 [node name="Lands" type="Node2D" parent="."]
 
 [node name="Plants" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("3_egd1l")]
+land_pos = Vector2i(4, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]

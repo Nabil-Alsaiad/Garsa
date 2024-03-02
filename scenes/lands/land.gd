@@ -1,6 +1,6 @@
 extends Node2D
 
-var unit: Node2D
+var _unit: Node2D
 var _under_mouse: bool = false
 
 func _process(_delta):
@@ -11,10 +11,14 @@ func _process(_delta):
 	if released:
 		pass
 	
-func set_unit(unit):
-	self.unit = unit
-	print('my new unit: ', unit)
-	unit.global_position = self.global_position
+func set_unit(_unit):
+	self._unit = _unit
+	print('my new _unit: ', _unit)
+	if _unit != null:
+		_unit.global_position = self.global_position
+	
+func can_set_unit() -> bool:
+	return self._unit == null
 
 func _on_area_2d_mouse_entered():
 	_under_mouse = true
