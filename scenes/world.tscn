@@ -18,7 +18,7 @@ inventory = ExtResource("2_w05nw")
 offset_left = -438.0
 offset_right = -438.0
 
-[node name="timer2" type="Label" parent="."]
+[node name="timer" type="Label" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = -135.0
@@ -36,6 +36,7 @@ offset_left = -488.0
 offset_top = -277.0
 offset_right = -345.0
 offset_bottom = -189.0
+mouse_filter = 1
 text = "إبدأ"
 language = "ar"
 

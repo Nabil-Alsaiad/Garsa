@@ -9,6 +9,7 @@ extends Node2D
 var lands = {}
 var timer = 0.0
 var started: bool = false
+var selected_unit: Node2D
 
 func _ready():
 	if grid_size.x % 2 == 0 or grid_size.y % 2 == 0:
@@ -45,6 +46,29 @@ func restart_game():
 	
 	for child in $Plants.get_children():
 		child.queue_free()
+	
+func select_unit(unit: Node2D) -> void:
+	var pressed = Input.is_action_pressed("click")
+	if pressed and selected_unit != null:
+		return
+	
+	if selected_unit != null and selected_unit != unit:
+		deselect_unit(selected_unit)
+	
+	selected_unit = unit
+	if not pressed:
+		toggle_lands(unit, true)
+	
+func deselect_unit(unit: Node2D) -> void:
+	if selected_unit == unit:
+		toggle_lands(unit, false)
+		selected_unit = null
+
+func toggle_lands(unit: Node2D, value: bool) -> void:
+	if unit.land != null:
+		var lands = unit.get_attackable_lands()
+		for land in lands:
+			land.toggle_attacked(value)
 
 func _on_button_pressed():
 	started = not started

@@ -21,7 +21,21 @@ func _ready():
 func _process(delta):
 	if world.timer - _last_attack_time >= data.attack_cooldown:
 		_last_attack_time = world.timer
-		print('unit ', self.name, ' attacking')
+		_attack()
+
+func _attack() -> void:
+	var lands = get_attackable_lands()
+	for land in lands:
+		var attacked_unit = land.get_unit()
+		if attacked_unit != null:
+			attacked_unit.take_damage(data.attack_damage)
+			print('unit ', self.name, ' attacking ', land.get_unit())
+
+func take_damage(damage: int) -> void:
+	_current_health -= damage
+	if _current_health <= 0:
+		print("unit ", data.name, ' has died')
+		self.queue_free()
 
 func get_attackable_lands():
 	if land == null:
@@ -68,6 +82,9 @@ func get_attackable_lands():
 					if valid_vec(new_vec2):
 						attackable_lands.append(lands[new_vec2])
 	
+	if attackable_lands.has(self.land):
+		attackable_lands.erase(self.land)
+		
 	return attackable_lands
 
 func valid_vec(vec):

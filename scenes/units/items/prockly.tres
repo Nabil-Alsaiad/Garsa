@@ -7,9 +7,9 @@
 script = ExtResource("1_0824c")
 name = "Prockly"
 texture = ExtResource("2_a3ndq")
-max_health = 6
-attack_speed = 1.0
+max_health = 10
+attack_cooldown = 1.2
 attack_damage = 2
-attack_width = 0
-attack_dis = 2
-attack_dir = 3
+attack_width = 1
+attack_dis = 1
+attack_dir = 2

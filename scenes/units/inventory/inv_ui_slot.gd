@@ -25,7 +25,7 @@ func _process(_delta):
 	plant_holder.add_child(_my_plant)
 	var mouse_pos = get_global_mouse_position()
 	_my_plant.global_position = mouse_pos
-	_my_plant.held = true
+	world.select_unit(_my_plant)
 
 func update(item: UnitItem):
 	if !item:

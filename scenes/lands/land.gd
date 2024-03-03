@@ -1,8 +1,16 @@
 extends Node2D
 
-var _unit: Node2D
-var _under_mouse: bool = false
 var vec: Vector2i
+
+var _under_mouse: bool = false
+var _unit: Node2D = null: set = set_unit, get = get_unit
+func get_unit():
+	return _unit
+func set_unit(value):
+	_unit = value
+	print('my new _unit: ', value)
+	if value != null:
+		value.global_position = self.global_position
 
 func set_vec(vec):
 	self.vec = vec
@@ -15,12 +23,6 @@ func _process(_delta):
 	var released = Input.is_action_just_released('click')
 	if released:
 		pass
-	
-func set_unit(_unit):
-	self._unit = _unit
-	print('my new _unit: ', _unit)
-	if _unit != null:
-		_unit.global_position = self.global_position
 	
 func can_set_unit() -> bool:
 	return self._unit == null
