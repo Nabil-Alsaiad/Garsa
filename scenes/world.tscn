@@ -37,7 +37,7 @@ offset_top = -277.0
 offset_right = -345.0
 offset_bottom = -189.0
 mouse_filter = 1
-text = "إبدأ"
+text = "بدء"
 language = "ar"
 
 [node name="Lands" type="Node2D" parent="."]
