@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitItem" load_steps=3 format=3 uid="uid://dhcne84tpwbhl"]
+
+[ext_resource type="Script" path="res://scenes/units/unit_item.gd" id="1_om2le"]
+[ext_resource type="Texture2D" uid="uid://cvoiw8365qilm" path="res://art/enemy.png" id="2_j4cwj"]
+
+[resource]
+script = ExtResource("1_om2le")
+name = "Enemy1"
+texture = ExtResource("2_j4cwj")
+max_health = 6
+attack_speed = 1.0
+attack_damage = 2
+attack_width = 0
+attack_dis = 1
+attack_dir = 4
