@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://mda4f8egpd64"]
+[gd_scene load_steps=5 format=3 uid="uid://mda4f8egpd64"]
 
 [ext_resource type="Script" path="res://scenes/lands/land.gd" id="1_o8x8p"]
 [ext_resource type="Texture2D" uid="uid://cenupva1xv7o8" path="res://art/icon.svg" id="2_74uns"]
+[ext_resource type="Texture2D" uid="uid://bwjdgvjid531c" path="res://art/red_circle.png" id="3_a11ai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ud0"]
 size = Vector2(126, 126)
@@ -19,6 +20,12 @@ shape = SubResource("RectangleShape2D_u8ud0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_u8ud0")
+
+[node name="AttackEffect" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.498039)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("3_a11ai")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

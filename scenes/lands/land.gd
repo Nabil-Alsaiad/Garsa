@@ -2,6 +2,11 @@ extends Node2D
 
 var _unit: Node2D
 var _under_mouse: bool = false
+var vec: Vector2i
+
+func set_vec(vec):
+	self.vec = vec
+	self.name = "land" + str(vec)
 
 func _process(_delta):
 	if !_under_mouse:
@@ -19,6 +24,9 @@ func set_unit(_unit):
 	
 func can_set_unit() -> bool:
 	return self._unit == null
+	
+func toggle_attacked(value):
+	$AttackEffect.visible = value
 
 func _on_area_2d_mouse_entered():
 	_under_mouse = true
