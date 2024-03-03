@@ -15,6 +15,10 @@ run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://art/icon.svg"
 
+[autoload]
+
+GlobalEnums="*res://scenes/global_enums.gd"
+
 [input]
 
 click={
